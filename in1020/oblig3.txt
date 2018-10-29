@@ -1,0 +1,113 @@
+IN1020 - Obligatorisk oppgave 3 - 26.10.2018
+
+Oppgaven skal kunne utføres på alle plattformer (OS) og lokasjoner forutsatt at du har en (grafisk) nettleser og internettforbindelse. Oppgaven leveres via “Devilry” i form av et dokument i “plain text” (UTF-8) eller som .pdf. Det legges vekt på forståelse av helheten og årsakssammenhenger i vurderingen. Vis utregninger / hvordan du kom frem til svaret der dette er relevant. Ingen av oppgavene krever lange utredninger, det er derfor satt et tak på antall ord i besvarelsen til hver oppgave.
+
+Oppgave 1. Pakkelogger (maks 100 ord pr. deloppgave)
+
+På hjemmesiden er det lagt ut tekstfiler med informasjon fra 5 forskjellige datapakker som er logget med biblioteket pcap og analysert i programmet Wireshark. Denne oppgaven går ut på å si litt om hver pakke basert på innholdet av loggen.
+
+a) Pakke 1:
+
+Hva er MAC-adressen til avsenderen av denne pakken? 00:0b:82:01:fc:42
+Hva er MAC-adressen til mottakeren av denne pakken? Broadcast (ff:ff:ff:ff:ff:ff)
+
+Hvilken transportlagsprotokoll brukes i pakken? UDP
+Hva er portnummeret til sender og mottager i denne pakken? Src Port: 68, Dst Port: 67
+
+Hva er funksjonen til denne pakken i nettverket? When a computer that is connected to a network is powered up and boots its operating system, the system software broadcasts BOOTP messages onto the network to request an IP address assignment. A BOOTP configuration server assigns an IP address based on the request from a pool of addresses configured by an administrator
+Hva slags pakke kan man forvente som svar på denne forespørselen? en dhcp pakke
+Fra hva slags tjener/enhet vil dette svaret komme? Fra dhcp serveren / routeren
+Hva betyr det om det ikke kommer noe svar på denne pakken? at det ikke er en dhcp server på nettverket/en feil har skjedd
+
+b) Pakke 2:
+
+Hvilken transportlagsprotokoll brukes i pakken?  tcp
+Hva er portnummeret til sender og mottager i denne pakken?   Src Port: 25, Dst Port: 1470
+
+Hva slags tjeneste på avsendermaskinen har sendt denne pakken? mail
+
+Hva slags henvendelse er denne pakken et svar på? en Authentication i smtp
+
+Hvor mange bytes har blitt sendt i denne forbindelsen frem til denne pakken ble mottatt? 84 bytes
+
+c) Pakke 3:
+
+Hva er IP-adressen til sender? fe80::a00:27ff:fefe:8f95
+Hva er IP-adressen til mottaker? ff02::1:2
+Hvilken transportlagsprotokoll brukes i pakken? udp
+Hva er formålet med pakken? dhcpv6, clienten svarer med en request pakke til en multicast adresse. Dette er et steg i å konfigurere IPv6 clienten med en ip adresse
+
+d) Pakke 4:
+
+Hvilken transportlagsprotokoll brukes i pakken? tcp
+Hva er formålet med denne pakken? (hint, se på flagg i transportlagsprotokollen) Syncronisering i inisialisering av connection (første del av handshake)
+Hva slags forespørsel kommer mest sannsynlig litt etter denne pakken? En SYN (initial sequence number) for serveren
+Har det blitt utvekslet noe data i samme forbindelse i forkant av at denne pakken ble sendt? mest sannsynelig ikke
+
+
+e) Pakke 5:
+
+Hvilken nettverkslagsprotokoll brukes i pakken? IPv4
+Hvilken transportlagsprotokoll brukes i pakken? Bruker ikke transport layer i pakken
+Hva er hensikten med pakken? ARP brukes til å finne adresser på data link-laget utfra adresser på nettverkslaget
+Hva er IP-adressen som korresponderer med MAC-adresse 80:fb:06:f0:45:d7? 10.251.23.1
+Hva er IP-adressen som korresponderer med MAC-adresse e0:a1:d7:18:c2:72? 10.251.23.139
+
+
+Oppgave 2 subnetting (maks 200 ord i innleveringen)
+
+I denne oppgaven legges det vekt på forståelse for valgene involvert når man må sette opp et nett og forståelse av tjenestene som kreves i et LAN som skal snakke med Internett. Prøv å svare kort og konsist.
+
+Du skal hjelpe det lokale bakeriet med å sette opp et nettverk til bruk for kundene, slik at de kan ha Internettforbindelse via trådløst nettverk. De forventer å ha opp mot 50 kunder av gangen. De har fått tildelt én global internettadresse fra sin ISP.
+
+a) Hvilke enheter og tjenester må nettverket minimum ha for å fungere.
+	De må ha et modem/ruter med en dhcp server for dynamiske ip'er, som regel følger det med et AP i ruteren, hvis ikke må det kobles til et Acces Point.
+
+b) Spesifiser hvordan subnettet kan se ut, og diskuter valgene. Spesifiser subnettadresse, nettverksmaske, kringkastingsadresse.
+	192.168.0.0/24
+	192.168.0.255
+
+
+c) Gitt valgene deres i a) og b), hvor mange enheter kan være tilkoblet samtidig?
+		253 brukbare, 1 reservert til ruter, og 1 reservert til broadcast.
+
+d) Bakeriet ønsker å montere et webkamera på utsiden av lokalene, som skal være offentlig tilgjengelig fra utsiden av nettverket. Hva må gjøres på det lokale nettverket/routeren for at dette skal virke?
+	Åpne en port for ønsket streaming service
+
+Oppgave 3 båndbredde og forsinkelse
+
+a) Kapasitet (maks 100 ord i innleveringen)
+
+Den maksimale overføringshastigheten for bits kalles ofte kapasitet (eller "båndbredde") og oppgis ofte i Mbps (megabits per sekund). En Byte består av 8 bits. Om du deler internettforbindelsen med andre, er det din andel av den tilgjengelige kapasiteten som måles.
+
+Hvor rask er din internettforbindelse? Avhenger av uplink på alt fra isp til ruter til switch/wifi til hvor mye andre på nettet bruker
+
+Gå til http://www.speedtest.net
+Kjør testen og noter deg hastigheten for opplasting og nedlasting. 4ms ping til uninett, 51.13 Mbps down, 52.66 Mbps
+
+For å finne ut hvor lang tid det tar å laste ned en gitt mengde data, må du dele datamengden på hastigheten.
+
+datamengde (i megabit) / hastighet (i Mbps) = tid for å fullføre (i sekunder)
+
+Anta at du skal gjennoføre en sikkerhetskopi av innholdet på datamaskinen til en skytjeneste Datamengden er 10GB (gigabyte) hvor lang tid vil det ta deg å laste opp sikkerhetskopien, gitt den kapasiteten du målte? 189.897455 sekunder
+
+
+2) Forsinkelse (latency)(maks 350 ord i innleveringen)
+
+Gå til http://www.wolframalpha.com og skriv “distance between <din lokasjon> and Auckland" (for eksempel "Distance between Oslo and Auckland").
+
+I søkeresultatet er det et avsnitt om "Direct travel times", der du vil finne reisetiden for lys over en fiber. Hva er denne verdien oppgitt til? 80ms over fiber
+
+Bruk verktøyet "ping" til å måle roundtrip time (RTT) til aucklandnz.com
+Hva er resultatet? 387 ms
+
+Hvordan er korrespondansen mellom den målte tiden og den teoretiske overføringstiden for lys i fiber?
+Hvordan kan forskjellen forklares? wifi, kobber ledning, prosseserings tid, pluss at kabelen ikke ligger i luftlinje, og repeaters
+
+Etter å ha kjørt mange målinger med "ping", vil du se at det er til dels store forskjeller mellom de høyeste og laveste pingtidene. Hvordan forklarer dere at det er så store forskjeller mellom to faste verter på nettet? Prosesserings delay av pakker
+
+Gå til hjemmesiden https://wondernetwork.com/pings
+
+Søk i listen etter en by i nærheten av der du er (Oslo er et tilgjengelig valg). Når du har lagt til din lokasjon, kan du se målinger på RTT mellom der du er og andre målepunkter rundt om i verden. Finn en by på hvert kontinent (Nord-Amerika, Sør-Amerika, Afrika, Asia og Oseania) og noter ned pingtiden.
+
+Datamaskiner på samme kontinent har ofte pingtider i samme størrelsesorden. Hva er forskjellen mellom pingtidene du noterte? Hvilket kontinent har den høyeste pingtiden? Hvorfor? Brasilia 368ms, Brisbane 345ms, Lagos 293ms, Tokyo 277ms. SørAmerika hadde høyeste ping tid, langt unna internett infrastruktur og mannge mellomstasjoner øker latencyen.Sør amerika og oceania hadde tilnærmet lik latency, aftrika og øst asia hadde tilnærmet lik latency

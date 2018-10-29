@@ -1,0 +1,60 @@
+Frame 15: 84 bytes on wire (672 bits), 84 bytes captured (672 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct  5, 2009 08:06:09.613798000 CEST
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1254722769.613798000 seconds
+    [Time delta from previous captured frame: 0.359680000 seconds]
+    [Time delta from previous displayed frame: 0.359680000 seconds]
+    [Time since reference or first frame: 2.121738000 seconds]
+    Frame Number: 15
+    Frame Length: 84 bytes (672 bits)
+    Capture Length: 84 bytes (672 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:smtp]
+    [Coloring Rule Name: TCP]
+    [Coloring Rule String: tcp]
+S: 235 
+Ethernet II, Src: Netgear_d9:81:60 (00:1f:33:d9:81:60), Dst: Cradlepo_3c:17:c2 (00:e0:1c:3c:
+17:c2)
+    Destination: Cradlepo_3c:17:c2 (00:e0:1c:3c:17:c2)
+    Source: Netgear_d9:81:60 (00:1f:33:d9:81:60)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 74.53.140.153, Dst: 10.10.1.4
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x60 (DSCP: CS3, ECN: Not-ECT)
+    Total Length: 70
+    Identification: 0x21e7 (8679)
+    Flags: 0x02 (Don't Fragment)
+    Fragment offset: 0
+    Time to live: 50
+    Protocol: TCP (6)
+    Header checksum: 0x448f [validation disabled]
+    [Header checksum status: Unverified]
+    Source: 74.53.140.153
+    Destination: 10.10.1.4
+    [Source GeoIP: Unknown]
+    [Destination GeoIP: Unknown]
+Transmission Control Protocol, Src Port: 25, Dst Port: 1470, Seq: 355, Ack: 70, Len: 30
+    Source Port: 25
+    Destination Port: 1470
+    [Stream index: 0]
+    [TCP Segment Len: 30]
+    Sequence number: 355    (relative sequence number)
+    [Next sequence number: 385    (relative sequence number)]
+    Acknowledgment number: 70    (relative ack number)
+    0101 .... = Header Length: 20 bytes (5)
+    Flags: 0x018 (PSH, ACK)
+    Window size value: 5840
+    [Calculated window size: 5840]
+    [Window size scaling factor: -2 (no window scaling used)]
+    Checksum: 0xbd20 [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    [SEQ/ACK analysis]
+    TCP payload (30 bytes)
+Simple Mail Transfer Protocol
+    Response: 235 Authentication succeeded\r\n
+        Response code: Authentication successful (235)
+        Response parameter: Authentication succeeded
